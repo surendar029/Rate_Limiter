@@ -16,6 +16,7 @@ public class RateLimiterFactory {
             case LEAKY_BUCKET -> new LeakyBucket(capacity,rateOrWindowSeconds);
             case FIXED_WINDOW -> new FixedWindow(capacity,rateOrWindowSeconds);
             case SLIDING_WINDOW_LOG -> new SlidingWindowLog(capacity,rateOrWindowSeconds);
+            case SLIDING_WINDOW_COUNTER -> new SlidingWindowCounter(capacity,rateOrWindowSeconds);
             default -> throw new IllegalArgumentException("Unsupported rate limiter type: " + type);
         };
     }
